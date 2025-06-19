@@ -34,7 +34,7 @@
                     transform: translateY(0);
                }
                .section img {
-                    width: 100%;
+                    width: 60%;
                     border-radius: 12px;
                     box-shadow: 0 10px 25px rgba(0, 191, 255, 0.2);
                     transition: transform 0.8s ease;
@@ -90,6 +90,32 @@
                     background-color: #1e1e1e;
                     color: #ccc;
                }
+               .hero {
+                    position: relative;
+                    height: 80vh;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    perspective: 1000px; /* 3D perspective */
+               }
+
+               .hero-bg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 110%;
+                    height: 110%;
+                    background-image: url("https://img.freepik.com/free-photo/photorealistic-view-cows-grazing-nature-outdoors_23-2151294297.jpg?ga=GA1.1.1866569872.1750328414&semt=ais_hybrid&w=740");
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    transform-style: preserve-3d;
+                    transition: transform 0.1s ease;
+                    z-index: 1;
+                    filter: brightness(0.8);
+               }
           </style>
      </head>
      <body>
@@ -130,8 +156,11 @@
                </div>
           </nav>
 
-          <header class="hero">
-               <h1 id="mainTitle">Sri Pannai Amman Karukka Thavideu Mill Production</h1>
+          <header class="hero" id="hero">
+               <div class="hero-bg" id="heroBg"></div>
+               <h1 id="mainTitle" style="color: #ffffff; position: relative; z-index: 2">
+                    Sri Pannai Amman Karukka Thavideu Mill Production
+               </h1>
           </header>
 
           <main class="container">
@@ -150,7 +179,7 @@
                     </div>
                     <div class="col-md-6">
                          <img
-                              src="https://images.unsplash.com/photo-1602524209793-3e4c3e0aaec4"
+                              src="https://img.freepik.com/free-photo/farm-lifestyle-digital-art_23-2151551069.jpg?uid=R122625722&ga=GA1.1.1866569872.1750328414&semt=ais_hybrid&w=740"
                               alt="About Us"
                          />
                     </div>
@@ -171,7 +200,7 @@
                     </div>
                     <div class="col-md-6">
                          <img
-                              src="https://images.unsplash.com/photo-1600404521121-bc948a0a2200"
+                              src="https://img.freepik.com/free-photo/paddy-harvest-golden-yellow-paddy-hand-farmer-carrying-paddy-hand-rice_1150-45680.jpg?ga=GA1.1.1866569872.1750328414&semt=ais_hybrid&w=740"
                               alt="Products"
                          />
                     </div>
@@ -231,7 +260,7 @@
                     </div>
                     <div class="col-md-6">
                          <img
-                              src="https://www.shutterstock.com/image-photo/tasikmalaya-indonesia-december-30-2023-260nw-2407245841.jpg"
+                              src="https://img.freepik.com/free-photo/truck-logistics-operation-dusk_23-2151468830.jpg?uid=R122625722&ga=GA1.1.1866569872.1750328414&semt=ais_hybrid&w=740"
                               alt="Delivery"
                               class="img-fluid animate__animated animate__fadeInRight"
                          />
@@ -258,6 +287,19 @@
           </footer>
 
           <script>
+               const hero = document.getElementById("hero");
+               const heroBg = document.getElementById("heroBg");
+
+               hero.addEventListener("mousemove", (e) => {
+                    const x = (e.clientX / window.innerWidth - 0.5) * 30;
+                    const y = (e.clientY / window.innerHeight - 0.5) * 30;
+
+                    heroBg.style.transform = `rotateY(${x}deg) rotateX(${y * -1}deg) scale(1.05)`;
+               });
+
+               hero.addEventListener("mouseleave", () => {
+                    heroBg.style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
+               });
                const translations = {
                     en: {
                          mainTitle: "Cow Feed Mill Production",
