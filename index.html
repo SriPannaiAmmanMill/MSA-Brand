@@ -24,17 +24,16 @@
                     scroll-behavior: smooth;
                }
                .section {
-                    padding: 80px 0;
-                    transition: all 1s ease;
+                    padding: 60px 15px;
                     opacity: 0;
                     transform: translateY(40px);
+                    transition: all 1s ease;
                }
                .section.in-view {
                     opacity: 1;
                     transform: translateY(0);
                }
                .section img {
-                    width: 60%;
                     border-radius: 12px;
                     box-shadow: 0 10px 25px rgba(0, 191, 255, 0.2);
                     transition: transform 0.8s ease;
@@ -61,9 +60,6 @@
                     color: #00bfff;
                     margin-bottom: 20px;
                }
-               p {
-                    font-size: 1.1rem;
-               }
                header.hero {
                     height: 70vh;
                     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -83,13 +79,14 @@
                     margin-right: auto;
                }
                .lang-switch {
-                    position: absolute;
-                    right: 1rem;
+                    position: relative;
                }
                footer {
                     background-color: #1e1e1e;
                     color: #ccc;
                }
+
+               /* Hero Section 3D Background */
                .hero {
                     position: relative;
                     height: 80vh;
@@ -98,16 +95,15 @@
                     align-items: center;
                     justify-content: center;
                     text-align: center;
-                    perspective: 1000px; /* 3D perspective */
+                    perspective: 1000px;
                }
-
                .hero-bg {
                     position: absolute;
                     top: 0;
                     left: 0;
                     width: 110%;
                     height: 110%;
-                    background-image: url("https://img.freepik.com/free-photo/photorealistic-view-cows-grazing-nature-outdoors_23-2151294297.jpg?ga=GA1.1.1866569872.1750328414&semt=ais_hybrid&w=740");
+                    background-image: url("https://img.freepik.com/free-photo/photorealistic-view-cows-grazing-nature-outdoors_23-2151294297.jpg");
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -115,6 +111,24 @@
                     transition: transform 0.1s ease;
                     z-index: 1;
                     filter: brightness(0.8);
+               }
+               @media (max-width: 767px) {
+                    .hero {
+                         height: 60vh;
+                    }
+                    h1 {
+                         font-size: 1.8rem;
+                    }
+                    h2 {
+                         font-size: 1.5rem;
+                    }
+                    p {
+                         font-size: 1rem;
+                    }
+                    .cta-btn {
+                         font-size: 0.9rem;
+                         padding: 10px 20px;
+                    }
                }
           </style>
      </head>
@@ -131,8 +145,10 @@
                          <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                         <ul class="navbar-nav mb-2 mb-lg-0">
-                              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                         <ul class="navbar-nav mx-auto text-center">
+                              <li class="nav-item">
+                                   <a class="nav-link" href="#about">About</a>
+                              </li>
                               <li class="nav-item">
                                    <a class="nav-link" href="#products">Products</a>
                               </li>
@@ -143,7 +159,7 @@
                                    <a class="nav-link" href="#contact">Contact</a>
                               </li>
                          </ul>
-                         <div class="lang-switch">
+                         <div class="lang-switch ms-auto">
                               <select
                                    onchange="changeLanguage(this.value)"
                                    class="form-select form-select-sm"
@@ -158,98 +174,96 @@
 
           <header class="hero" id="hero">
                <div class="hero-bg" id="heroBg"></div>
-               <h1 id="mainTitle" style="color: #ffffff; position: relative; z-index: 2">
+               <h1 id="mainTitle" class="position-relative z-1">
                     Sri Pannai Amman Karukka Thavideu Mill Production
                </h1>
           </header>
 
-          <main class="container">
-               <section id="about" class="section row align-items-center">
-                    <div class="col-md-6">
-                         <h2>About Us</h2>
-                         <p>
-                              Sri Pannai Amman Karukka Thavideu Mill is dedicated to providing
-                              high-quality, nutritious feed for cows. We support farmers with
-                              reliable, natural, and balanced cattle food. Our products help improve
-                              milk yield and keep cows healthy. With a focus on quality and trust,
-                              we serve the farming community with care. Your cows' health is our
-                              priority — naturally nourishing, always dependable.
-                         </p>
-                         <a href="#contact" class="btn cta-btn mt-3">Learn More</a>
-                    </div>
-                    <div class="col-md-6">
-                         <img
-                              src="https://img.freepik.com/free-photo/farm-lifestyle-digital-art_23-2151551069.jpg?uid=R122625722&ga=GA1.1.1866569872.1750328414&semt=ais_hybrid&w=740"
-                              alt="About Us"
-                         />
-                    </div>
-               </section>
-
-               <section id="products" class="section row align-items-center flex-md-row-reverse">
-                    <div class="col-md-6">
-                         <h2>Our Products</h2>
-                         <p>
-                              We offer premium-quality cow feed made from natural and nutrient-rich
-                              ingredients. Our products are specially formulated to boost milk
-                              production and maintain cow health. Each batch is processed with care
-                              to ensure purity and consistency. We provide a range of feed options
-                              suitable for all stages of cattle growth. Trusted by farmers, our feed
-                              supports strong, healthy, and productive livestock.
-                         </p>
-                         <a href="#contact" class="btn cta-btn mt-3">Order Now</a>
-                    </div>
-                    <div class="col-md-6">
-                         <img
-                              src="https://img.freepik.com/free-photo/paddy-harvest-golden-yellow-paddy-hand-farmer-carrying-paddy-hand-rice_1150-45680.jpg?ga=GA1.1.1866569872.1750328414&semt=ais_hybrid&w=740"
-                              alt="Products"
-                         />
+          <main class="container-fluid">
+               <!-- About Section -->
+               <section id="about" class="section">
+                    <div class="row align-items-center">
+                         <div class="col-md-6 mb-4 mb-md-0">
+                              <h2>About Us</h2>
+                              <p>
+                                   Sri Pannai Amman Karukka Thavideu Mill is dedicated to providing
+                                   high-quality, nutritious feed for cows. We support farmers with
+                                   reliable, natural, and balanced cattle food. Our products help
+                                   improve milk yield and keep cows healthy. With a focus on quality
+                                   and trust, we serve the farming community with care. Your cows'
+                                   health is our priority — naturally nourishing, always dependable.
+                              </p>
+                              <a href="#contact" class="btn cta-btn mt-3">Learn More</a>
+                         </div>
+                         <div class="col-md-6 text-center">
+                              <img
+                                   src="https://img.freepik.com/free-photo/farm-lifestyle-digital-art_23-2151551069.jpg"
+                                   alt="About Us"
+                                   class="img-fluid"
+                              />
+                         </div>
                     </div>
                </section>
 
-               <section id="delivery" class="section row align-items-center">
-                    <h2 style="text-align: center">Delivery Coverage</h2>
-                    <h4 style="text-align: center">We offer delivery within a 25 km radius.</h4>
-                    <div class="col-md-6">
-                         <!-- Area Lists -->
-                         <div class="delivery-info mt-4">
-                              <div
-                                   class="radius-card mb-3 p-3 rounded bg-dark text-white shadow-sm animate__animated animate__fadeInLeft"
-                              >
+               <!-- Products Section -->
+               <section id="products" class="section">
+                    <div class="row align-items-center flex-md-row-reverse">
+                         <div class="col-md-6 mb-4 mb-md-0">
+                              <h2>Our Products</h2>
+                              <p>
+                                   We offer premium-quality cow feed made from natural and
+                                   nutrient-rich ingredients. Our products are specially formulated
+                                   to boost milk production and maintain cow health. Each batch is
+                                   processed with care to ensure purity and consistency. We provide
+                                   a range of feed options suitable for all stages of cattle growth.
+                                   Trusted by farmers, our feed supports strong, healthy, and
+                                   productive livestock.
+                              </p>
+                              <a href="#contact" class="btn cta-btn mt-3">Order Now</a>
+                         </div>
+                         <div class="col-md-6 text-center">
+                              <img
+                                   src="https://img.freepik.com/free-photo/paddy-harvest-golden-yellow-paddy-hand-farmer-carrying-paddy-hand-rice_1150-45680.jpg"
+                                   alt="Products"
+                                   class="img-fluid"
+                              />
+                         </div>
+                    </div>
+               </section>
+
+               <!-- Delivery Section -->
+               <section id="delivery" class="section">
+                    <h2 class="text-center mb-3">Delivery Coverage</h2>
+                    <h5 class="text-center mb-4">We offer delivery within a 25 km radius.</h5>
+                    <div class="row">
+                         <div class="col-md-6">
+                              <div class="mb-3 p-3 rounded bg-dark">
                                    <h5 class="text-info">0–5 km</h5>
                                    <strong>Free delivery on orders of 2 bags or more!</strong>
-                                   <br />
-                                   <p class="mt-2">
-                                        Agarakottalam,Anaikkaraikkottalam,Soolankurichi,
-                                        Thandalai,Vaniyanthal,Ranganathapuram, Ponbarapattu,
+                                   <p>
+                                        Agarakottalam, Anaikkaraikkottalam, Soolankurichi,
+                                        Thandalai, Vaniyanthal, Ranganathapuram, Ponbarapattu,
                                         Alathur, Neyivanatham, Pallippattu, Velanandal
                                    </p>
                               </div>
-                              <div
-                                   class="radius-card mb-3 p-3 rounded bg-dark text-white shadow-sm animate__animated animate__fadeInLeft animate__delay-1s"
-                              >
+                              <div class="mb-3 p-3 rounded bg-dark">
                                    <h5 class="text-info">5–15 km</h5>
                                    <strong>Free delivery on orders of 5 bags or more!</strong>
-                                   <br />
-                                   <p class="mt-2">
+                                   <p>
                                         Somandargudi, Mohur Colony, Pottiyam, Tirukkanangur,
                                         Neelamangalam, Kudiraichandal, Nallathur, Olagankathan,
                                         Siruvangur, Rishivandiyam, Peelamedu
                                    </p>
                               </div>
-                              <div
-                                   class="radius-card mb-3 p-3 rounded bg-dark text-white shadow-sm animate__animated animate__fadeInLeft animate__delay-2s"
-                              >
+                              <div class="mb-3 p-3 rounded bg-dark">
                                    <h5 class="text-info">15–25 km</h5>
                                    <strong>Free delivery on orders of 7 to 10 bags or more!</strong>
-                                   <br />
-                                   <p class="mt-2">
+                                   <p>
                                         Murarpalayam, Melnariyappanur, Ammakalathur, Sadayampattu,
                                         Jambai
                                    </p>
                               </div>
-                              <div
-                                   class="free-offer mt-4 p-3 rounded bg-info text-dark text-center animate__animated animate__zoomIn animate__delay-3s"
-                              >
+                              <div class="p-3 rounded bg-info text-dark text-center">
                                    <h5>🎁 Special Offer</h5>
                                    <p>
                                         Get <strong>Free Delivery</strong> on orders of
@@ -257,27 +271,33 @@
                                    </p>
                               </div>
                          </div>
-                    </div>
-                    <div class="col-md-6">
-                         <img
-                              src="https://img.freepik.com/free-photo/truck-logistics-operation-dusk_23-2151468830.jpg?uid=R122625722&ga=GA1.1.1866569872.1750328414&semt=ais_hybrid&w=740"
-                              alt="Delivery"
-                              class="img-fluid animate__animated animate__fadeInRight"
-                         />
+                         <div class="col-md-6 text-center">
+                              <img
+                                   src="https://img.freepik.com/free-photo/truck-logistics-operation-dusk_23-2151468830.jpg"
+                                   alt="Delivery"
+                                   class="img-fluid"
+                              />
+                         </div>
                     </div>
                </section>
 
-               <section id="contact" class="section row align-items-center flex-md-row-reverse">
-                    <div class="col-md-6">
-                         <h2>Contact Us</h2>
-                         <p>Email: msacowfeedmill@gmail.com<br />Phone: +91-9655685851</p>
-                         <a href="msacowfeedmill@gmail.com" class="btn cta-btn mt-3">Send Email</a>
-                    </div>
-                    <div class="col-md-6">
-                         <img
-                              src="https://images.unsplash.com/photo-1618370648776-39a55c16a1ce"
-                              alt="Contact"
-                         />
+               <!-- Contact Section -->
+               <section id="contact" class="section">
+                    <div class="row align-items-center flex-md-row-reverse">
+                         <div class="col-md-6 mb-4 mb-md-0">
+                              <h2>Contact Us</h2>
+                              <p>Email: msacowfeedmill@gmail.com<br />Phone: +91-9655685851</p>
+                              <a href="mailto:msacowfeedmill@gmail.com" class="btn cta-btn mt-3"
+                                   >Send Email</a
+                              >
+                         </div>
+                         <div class="col-md-6 text-center">
+                              <img
+                                   src="https://images.unsplash.com/photo-1618370648776-39a55c16a1ce"
+                                   alt="Contact"
+                                   class="img-fluid"
+                              />
+                         </div>
                     </div>
                </section>
           </main>
@@ -293,25 +313,16 @@
                hero.addEventListener("mousemove", (e) => {
                     const x = (e.clientX / window.innerWidth - 0.5) * 30;
                     const y = (e.clientY / window.innerHeight - 0.5) * 30;
-
                     heroBg.style.transform = `rotateY(${x}deg) rotateX(${y * -1}deg) scale(1.05)`;
                });
-
                hero.addEventListener("mouseleave", () => {
                     heroBg.style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
                });
-               const translations = {
-                    en: {
-                         mainTitle: "Cow Feed Mill Production",
-                    },
-                    hi: {
-                         mainTitle: "गाय चारा मिल उत्पादन",
-                    },
-                    ta: {
-                         mainTitle: "மாடு தீவன ஆலை உற்பத்தி",
-                    },
-               };
 
+               const translations = {
+                    en: { mainTitle: "Cow Feed Mill Production" },
+                    ta: { mainTitle: "மாடு தீவன ஆலை உற்பத்தி" },
+               };
                function changeLanguage(lang) {
                     document.getElementById("mainTitle").textContent = translations[lang].mainTitle;
                }
@@ -327,46 +338,7 @@
                     },
                     { threshold: 0.15 }
                );
-
-               sections.forEach((section) => {
-                    observer.observe(section);
-               });
-               const deliveryZones = {
-                    "0-5": [
-                         "Agarakottalam",
-                         "Anaikkaraikkottalam",
-                         "Pottiyam",
-                         "Tirukkanangur",
-                         "Ponbarapattu",
-                         "Alathur",
-                         "Neyivanatham",
-                         "Soolankurichi",
-                         "Pallippattu",
-                         "Velanandal",
-                         "Peelamedu",
-                         "Rishivandiyam",
-                    ],
-                    "5-15": [
-                         "Somandargudi",
-                         "Mohur Colony",
-                         "Thandalai",
-                         "Vaniyanthal",
-                         "Ranganathapuram",
-                         "Neelamangalam",
-                         "Kudiraichandal",
-                         "Nallathur",
-                         "Olagankathan",
-                         "Siruvangur",
-                         "Sulankurichi",
-                    ],
-                    "15-25": [
-                         "Murarpalayam",
-                         "Melnariyappanur",
-                         "Ammakalathur",
-                         "Sadayampattu",
-                         "Jambai",
-                    ],
-               };
+               sections.forEach((section) => observer.observe(section));
           </script>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
      </body>
